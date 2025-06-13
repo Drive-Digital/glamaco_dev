@@ -7,6 +7,35 @@
       "id": "section_heading",
       "label": "Section Heading",
       "default": "Our Features"
+    },
+    {
+      "type": "header",
+      "content": "Appearance"
+    },
+    {
+      "type": "range",
+      "id": "desktop_column",
+      "min": 1,
+      "max": 4,
+      "step": 1,
+      "default": 3,
+      "label": "Desktop Column"
+    },
+    {
+      "type": "select",
+      "id": "mobile_column",
+      "label": "Mobile Column",
+      "options": [
+        {
+          "label": "1",
+          "value": "1"
+        },
+        {
+          "label": "2",
+          "value": "2"
+        }
+      ],
+      "default": "2"
     }
   ],
   "blocks": [
@@ -67,12 +96,12 @@
     gap: 20px;
     display: grid;
     max-width: 1320px;
-    grid-template-columns: repeat(1, 1fr);
+    grid-template-columns: repeat({{ section.settings.mobile_column }}, 1fr);
   }
 
   @media screen and (min-width: 768px) {
     .featured-images-grid {
-      grid-template-columns: repeat(3, 1fr);
+      grid-template-columns: repeat({{ section.settings.desktop_column }}, 1fr);
       margin: 0 0;
     }
   }
