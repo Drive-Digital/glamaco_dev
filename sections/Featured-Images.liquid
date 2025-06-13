@@ -66,12 +66,13 @@
   .featured-images-grid {
     gap: 20px;
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
     max-width: 1320px;
+    grid-template-columns: repeat(2, 1fr);
   }
 
   @media screen and (min-width: 768px) {
     .featured-images-grid {
+      grid-template-columns: repeat(3, 1fr);
       margin: 0 0;
     }
   }
