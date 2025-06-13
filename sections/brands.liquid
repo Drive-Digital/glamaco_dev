@@ -1,0 +1,60 @@
+<div class="brands-page {{ section.settings.container }} py-4">
+  <div vue-init>
+    <brands-menu with-heading />
+  </div>
+
+  {% if section.settings.bottom_text != blank %}
+    <p class="text-center py-8 font-bold text-[#1A1A1A]">
+      {{ section.settings.bottom_text }}
+    </p>
+  {% endif %}
+</div>
+
+{% schema %}
+{
+  "name": "Brands",
+  "disabled_on": {
+    "groups": ["header", "footer"]
+  },
+  "settings": [
+    {
+      "type": "header",
+      "content": "General"
+    },
+    {
+      "type": "select",
+      "id": "container",
+      "label": "Container type",
+      "default": "container",
+      "options": [
+        {
+          "value": "w-full",
+          "label": "Full width"
+        },
+        {
+          "value": "container",
+          "label": "Use container box"
+        },
+        {
+          "value": "container-fluid",
+          "label": "Default"
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "id": "bottom_text",
+      "label": "Bottom Text",
+      "default": "Some of our favourite brands"
+    }
+  ],
+  "blocks": [],
+  "presets": [
+    {
+      "name": "Brands",
+      "category": "Image",
+      "blocks": []
+    }
+  ]
+}
+{% endschema %}

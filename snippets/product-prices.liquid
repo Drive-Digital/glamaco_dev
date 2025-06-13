@@ -1,0 +1,222 @@
+{{ 'component-price.css' | asset_url | stylesheet_tag }}
+
+{%- liquid
+  assign selected_variant = product.selected_or_first_available_variant
+  if use_variant
+    assign target = selected_variant
+  else
+    assign target = product
+  endif
+
+  assign compare_at_price = target.compare_at_price
+  assign price = target.price | default: 1999
+
+  if is_product_card and settings.pcard_show_lowest_prices
+    assign price = product.price
+    # move trade check up
+    # if trade > assign product.variant.metafields.trade_compare_at_price
+    # else assign product.compare_at_price
+    assign compare_at_price = product.compare_at_price
+  endif
+
+  assign available = target.available | default: false
+  assign money_price = price | money
+
+  if settings.currency_code_enabled and cart.currency.iso_code != 'AUD'
+    assign money_price = price | money_with_currency
+  endif
+
+  if target == product and product.price_varies and settings.pcard_show_lowest_prices
+    assign money_price = 'products.product.from_text_html' | t: price: money_price
+  endif
+
+  assign sale_badge_type = sale_badge_type | default: 'percentage'
+  
+  assign is_trade_customer = false
+  if customer and customer.tags.size > 0
+    for tag in customer.tags
+      assign downcase_tag = tag | downcase
+      if downcase_tag == 'trade'
+        assign is_trade_customer = true
+        break
+      endif
+    endfor
+  endif
+
+  if target == product
+    assign trade_price = selected_variant.metafields.webstorelink.trade_price.value | times: 100
+    assign trade_compare_at_price = selected_variant.metafields.webstorelink.trade_compare_at_price.value | times: 100
+    assign is_trade_only_product = selected_variant.metafields.webstorelink.trade_only_product
+  else
+    assign trade_price = target.metafields.webstorelink.trade_price.value | times: 100
+    assign trade_compare_at_price = target.metafields.webstorelink.trade_compare_at_price.value | times: 100
+    assign is_trade_only_product = target.metafields.webstorelink.trade_only_product
+  endif
+
+  if trade_price > price
+    assign trade_compare_at_price = trade_price
+    assign trade_price = price
+  endif
+
+  assign money_trade_price = trade_price | money
+  assign money_trade_compare_at_price = trade_compare_at_price | money
+  
+  if settings.currency_code_enabled and cart.currency.iso_code != 'AUD'
+    assign money_trade_price = trade_price | money_with_currency
+    assign money_trade_compare_at_price = trade_compare_at_price | money_with_currency
+  endif
+
+  # Pre-calculate the on-sale condition
+  assign regular_on_sale = false
+  if compare_at_price > price
+    assign regular_on_sale = true
+  endif
+
+  assign trade_on_sale = false
+  if is_trade_customer and trade_compare_at_price != blank and trade_price != blank
+    if trade_compare_at_price > trade_price
+      assign trade_on_sale = true
+    endif
+  endif
+
+  assign is_on_sale = false
+  if regular_on_sale or trade_on_sale
+    assign is_on_sale = true
+  endif
+-%}
+
+{% if is_trade_customer == false and is_trade_only_product == true and template.name != 'product'%}
+  {% render 'trade-sign-in-button' %}
+{% else %}
+
+  {% assign starting_at_price = product.metafields.webstorelink.starting_at_price | times: 100 %}
+  {% if product.variants[0].price == starting_at_price %}
+    <span class="price__starting-at flex">
+      Starting at:
+    </span>
+  {% endif %}
+  
+  <div
+    class="
+      m-price m:inline-flex m:items-center m:flex-wrap
+      {%- if alignment %} m-price--{{ alignment }}{% endif -%}
+      {%- if price_class %} {{ price_class }}{% endif -%}
+      {%- if available == false %} m-price--sold-out {% endif -%}
+      {%- if is_on_sale %} m-price--on-sale {% endif -%}
+      {%- if target.price_varies == false and target.compare_at_price_varies %} m-price--no-compare{% endif -%}
+    "
+    data-sale-badge-type="{{ sale_badge_type }}"
+  >
+    <div class="m-price__regular">
+      <span class="m:visually-hidden m:visually-hidden--inline">{{ 'products.product.price.regular_price' | t }}</span>
+      <span class="m-price-item m-price-item--regular {{ price_text_size }}">
+        {% if is_trade_customer and trade_price %}
+          {{ money_trade_price }}
+        {% else %}
+          {{ money_price }}
+        {% endif %}
+      </span>
+    </div>
+    <div class="m-price__sale">
+      <span class="m:visually-hidden m:visually-hidden--inline">{{ 'products.product.price.sale_price' | t }}</span>
+      <span class="m-price-item m-price-item--sale m-price-item--last {{ price_text_size }}">
+        {% if is_trade_customer and trade_price %}
+          {{ money_trade_price }}
+        {% else %}
+          {{ money_price }}
+        {% endif %}
+      </span>
+      {%- unless target.price_varies == false and target.compare_at_price_varies %}
+        <span class="m:visually-hidden m:visually-hidden--inline">{{ 'products.product.price.regular_price' | t }}</span>
+        <s class="m-price-item m-price-item--regular">
+          {% if is_trade_customer and trade_compare_at_price and trade_compare_at_price > trade_price %}
+            {{ money_trade_compare_at_price }}
+          {% elsif settings.currency_code_enabled and cart.currency.iso_code != 'AUD' %}
+            {{ compare_at_price | money_with_currency }}
+          {% else %}
+            {{ compare_at_price | money }}
+          {% endif %}
+        </s>
+      {%- endunless -%}
+    </div>
+    <div class="m-price__unit-wrapper{% if selected_variant.unit_price_measurement == nil %} m:hidden{% endif %}">
+      <span class="m:visually-hidden">{{ 'products.product.price.unit_price' | t }}</span>
+      <div class="m-price__unit">
+        {%- capture unit_price_separator -%}
+          <span aria-hidden="true">/</span>
+        {%- endcapture -%}
+        {%- capture unit_price_base_unit -%}
+          <span data-unit-price-base-unit>
+              {%- if selected_variant.unit_price_measurement -%}
+                {%- if selected_variant.unit_price_measurement.reference_value != 1 -%}
+                  {{- selected_variant.unit_price_measurement.reference_value -}}
+                {%- endif -%}
+                {{ selected_variant.unit_price_measurement.reference_unit }}
+              {%- endif -%}
+            </span>
+        {%- endcapture -%}
+        <span data-unit-price>{{ selected_variant.unit_price | money }}</span>
+        {{- unit_price_separator -}}
+        {{- unit_price_base_unit -}}
+      </div>
+    </div>
+  
+    {% if show_sale_badge %}
+      <div class="m-price__badges">
+        {% if show_sale_badge %}
+          {% liquid
+            assign save_amount = 0
+            if is_trade_customer and trade_compare_at_price != blank and trade_price != blank and trade_compare_at_price > 0 and trade_price > 0
+              assign save_amount = trade_compare_at_price | minus: trade_price
+            elsif compare_at_price > price
+              assign save_amount = compare_at_price | minus: price
+            endif
+  
+            assign discount = ''
+            if sale_badge_type == 'percentage'
+              if is_trade_customer and trade_compare_at_price != blank and trade_price != blank and trade_compare_at_price > 0 and trade_price > 0
+                # Calculate discount percentage correctly using proper decimal values
+                assign discount = save_amount | times: 100 | divided_by: trade_compare_at_price | round | append: '%'
+              else
+                assign discount = save_amount | times: 100 | divided_by: compare_at_price | round | append: '%'
+              endif
+            elsif sale_badge_type == 'fixed_amount'
+              if settings.currency_code_enabled and cart.currency.iso_code != 'AUD'
+                assign discount = save_amount | money_with_currency
+              else
+                assign discount = save_amount | money
+              endif
+            endif
+          %}
+          <div class="m-price__badge-sale" data-type="{{ sale_badge_type }}">
+            <span class="m-product-tag m-product-tag--sale m-gradient m-color-{{ settings.sale_badge_color_scheme }}">
+              {% unless sale_badge_type == 'text' %}
+                {% render 'new-locale', key: 'products.product.save_html', param: '{{ amount }}', value: discount %}
+              {% else %}
+                {% render 'new-locale', key: 'products.product.sale_text' %}
+              {% endunless %}
+            </span>
+          </div>
+        {% endif %}
+      </div>
+    {% endif %}
+    
+    {% if show_sale_message %}
+      {% render 'product-sale-message', product: product, is_trade_customer: is_trade_customer %}
+    {% endif %}
+
+   {% comment %} Trade price indicator logic {% endcomment %}
+    {% liquid
+      assign trade_price_indicator = "1/00"
+      if is_trade_customer == false and price > trade_price
+        assign trade_price_indicator = product.selected_or_first_available_variant.metafields.webstorelink.trade_price_indicator.value
+      endif
+    %}
+    
+    {% if trade_price_indicator != blank %}
+      <div class="m-price__trade-indicator">
+        <span>{{ trade_price_indicator }}</span>
+      </div>
+    {% endif %}
+  </div>
+{% endif %}

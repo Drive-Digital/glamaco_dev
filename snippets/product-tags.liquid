@@ -1,0 +1,47 @@
+{%- comment -%}
+    TODO: add to theme settings [color, tag...]
+    Valid tags:
+     - tag__hot_[DISPLAY_TEXT]
+     - tag__new_[DISPLAY_TEXT]
+     - tag__sale_[DISPLAY_TEXT]
+    Example: tag__hot_-50% OFF, tag__new_NEW ARRIVAL
+{%- endcomment -%}
+
+{% for tag in product.tags %}
+    {% if tag contains 'tag__' %}
+        {%- liquid
+            assign tag_content = tag | split: '__' | last
+            assign type = tag_content | split: '_' | first
+            assign tag_name = tag_content | split: '_' | last
+            assign color_scheme_class = 'm-color-'
+            assign date = nil
+            case type | downcase
+                when 'sale':
+                    assign color_scheme_class = color_scheme_class | append: settings.sale_badge_color_scheme
+                when 'new':
+                    assign color_scheme_class = color_scheme_class | append: settings.new_badge_color_scheme
+                when 'hot':
+                    assign color_scheme_class = color_scheme_class | append: settings.hot_badge_color_scheme
+                when 'saleoff':
+                    assign color_scheme_class = color_scheme_class | append: settings.saleoff_badge_color_scheme
+                    assign date = tag_name | date: '%Y-%m-%d'
+                    assign now_date = 'now' | date: '%Y-%m-%d'
+                    assign save_amount = 0
+                    assign discount = 0
+                    if tag_name == nil or date >= now_date and product.compare_at_price > product.price
+                        assign save_amount = product.compare_at_price | minus: product.price
+                        assign discount = save_amount | times: 100.0 | divided_by: product.compare_at_price | round
+                    endif
+            endcase
+        -%}
+        <span class="{{ classes }} m-product-tag m-product-tag--{{ type }} m-gradient {{ color_scheme_class }}">
+            {%- if type == 'saleoff' -%}
+                {%- if discount > 0 -%}
+                    {{ 'products.product.percentage_off' | t: percentage_amount: discount }}
+                {%- endif -%}
+            {%- else -%}
+                {{ tag_name }}
+            {%- endif -%}
+        </span>
+    {% endif %}
+{% endfor %}

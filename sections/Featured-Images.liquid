@@ -1,0 +1,68 @@
+{% schema %}
+{
+  "name": "Featured Images",
+  "settings": [
+    {
+      "type": "text",
+      "id": "section_heading",
+      "label": "Section Heading",
+      "default": "Our Features"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "image_tile",
+      "name": "Image Tile",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "tile_image",
+          "label": "Image"
+        },
+        {
+          "type": "text",
+          "id": "tile_title",
+          "label": "Title",
+          "default": "Feature Title"
+        },
+        {
+          "type": "textarea",
+          "id": "tile_description",
+          "label": "Description",
+          "default": "Short description of the feature."
+        },
+        {
+          "type": "url",
+          "id": "tile_link",
+          "label": "Link",
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Featured Images",
+      "category": "Custom Sections"
+    }
+  ]
+}
+{% endschema %}
+
+<div class="featured-images-section">
+  <h2>{{ section.settings.section_heading }}</h2>
+  <div class="featured-images-grid">
+    {% for block in section.blocks %}
+      {% if block.type == 'image_tile' %}
+        <div class="featured-image-tile">
+          <a href="{{ block.settings.tile_link }}" class="tile-link">
+            {{ block.settings.tile_image | image_url: width: 387 | image_tag }}
+            <div class="tile-content">
+              <h3>{{ block.settings.tile_title }}</h3>
+              <p>{{ block.settings.tile_description }}</p>
+            </div>
+          </a>
+        </div>
+      {% endif %}
+    {% endfor %}
+  </div>
+</div>
