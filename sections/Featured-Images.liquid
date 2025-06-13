@@ -55,6 +55,15 @@
       {% if block.type == 'image_tile' %}
         <div class="featured-image-tile">
           <a href="{{ block.settings.tile_link }}" class="tile-link">
+            {% liquid
+              assign index = forloop.index
+              for i in (1..index)
+                capture current
+                  cycle 1, 2, 3, 4, 5, 6
+                endcapture
+              endfor
+              assign placeholder_image = 'collection-' | append: current
+            %}
             {% if block.settings.tile_image != blank %}
               {{ block.settings.tile_image | image_url: width: 387 | image_tag }}
             {% else %}
