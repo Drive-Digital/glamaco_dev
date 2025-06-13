@@ -1,0 +1,10 @@
+{% assign dangerous_goods = product.variants[0].metafields.webstorelink.dangerous_goods_class.value %}
+{% if dangerous_goods != blank %}
+  <div class="dangerous-goods">
+    {{ 'products.product.dangerous_goods_html' | t }}
+    <div class="flex items-center gap-2 mt-2">
+      {{ dangerous_goods.class_icon | image_url: width: 52 | image_tag }}
+      <span>{{dangerous_goods.ghs_class }}</span>
+    </div>
+  </div>
+{% endif %}

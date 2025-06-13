@@ -1,0 +1,42 @@
+{% liquid
+  assign is_trade_customer = false
+  if customer and customer.tags.size > 0
+    for tag in customer.tags
+      assign downcase_tag = tag | downcase
+      if downcase_tag == 'trade'
+        assign is_trade_customer = true
+        break
+      endif
+    endfor
+  endif
+%}
+{% unless is_trade_customer %}
+  <script type="module">
+    document.addEventListener('DOMContentLoaded', () => {
+      const productsToRemove = {};
+      {% if cart.item_count > 0 %}
+        {% for item in cart.items %}
+          {% if item.variant.metafields.webstorelink.trade_only_product %}
+            productsToRemove[{{ item.variant.id}}] = 0;
+          {% endif %}
+        {% endfor %}
+      {% endif %}
+
+      if (Object.keys(productsToRemove).length > 0) {
+        fetch(window.Shopify.routes.root + 'cart/update.js', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify({ updates: productsToRemove })
+        })
+        .then(response => {
+          window.location.reload();
+        })
+        .catch((error) => {
+          console.error('Error:', error);
+        });
+      }
+    });
+  </script>
+{% endunless %}

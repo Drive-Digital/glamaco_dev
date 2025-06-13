@@ -1,0 +1,136 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "page",
+      "settings": {}
+    },
+    "image_with_text_nTNKUG": {
+      "type": "image-with-text",
+      "name": "Image with text",
+      "settings": {
+        "heading": "{{ metaobject.name.value }}",
+        "heading_size": "h3",
+        "subheading": "",
+        "container": "container",
+        "color_scheme": "",
+        "item_gap": 100,
+        "item_gap_mobile": 30,
+        "layout": "left",
+        "image_column_size": "2",
+        "image_overlap": false,
+        "show_image_reverse": false,
+        "hover_effect": false,
+        "image_animation": "none",
+        "image": "{{ metaobject.logo.value }}",
+        "link": "",
+        "link_2": "",
+        "second_image_offset_top": 10,
+        "title": "",
+        "sub_title": "",
+        "text": "<p>{{ metaobject.description | metafield_tag }}</p>",
+        "text_size": "medium",
+        "content_alignment": "left",
+        "button_label": "Shop Collection",
+        "button_link": "{{ metaobject.url.value }}",
+        "button_style": "m-button--link",
+        "button_size": "",
+        "padding_top": 0,
+        "padding_bottom": 0,
+        "custom_class": "",
+        "animations": "inherit"
+      }
+    },
+    "collapsible_tabs_Kgn7ij": {
+      "type": "collapsible-tabs",
+      "blocks": {
+        "item_TGc88M": {
+          "type": "item",
+          "settings": {
+            "header": "Shipping",
+            "text_size": "h5",
+            "content": "<p>{{ metaobject.shipping_information | metafield_tag }}</p>",
+            "content_page": "",
+            "open": true
+          }
+        },
+        "item_rRdGVd": {
+          "type": "item",
+          "settings": {
+            "header": "Returns",
+            "text_size": "h5",
+            "content": "<p>{{ metaobject.returns_policy_statement | metafield_tag }}</p>",
+            "content_page": "",
+            "open": false
+          }
+        },
+        "item_tATKrp": {
+          "type": "item",
+          "settings": {
+            "header": "Returns Postal Address",
+            "text_size": "h5",
+            "content": "<p>{{ metaobject.returns_postal_address | metafield_tag }}</p>",
+            "content_page": "",
+            "open": false
+          }
+        },
+        "item_4hAnzE": {
+          "type": "item",
+          "settings": {
+            "header": "Returns Contact Number",
+            "text_size": "h5",
+            "content": "<p>{{ metaobject.returns_contact_number | metafield_tag }}</p>",
+            "content_page": "",
+            "open": false
+          }
+        },
+        "item_ipctEF": {
+          "type": "item",
+          "settings": {
+            "header": "Returns Email Address",
+            "text_size": "h5",
+            "content": "<p>{{ metaobject.returns_email_address.value }}</p>",
+            "content_page": "",
+            "open": false
+          }
+        }
+      },
+      "block_order": [
+        "item_TGc88M",
+        "item_rRdGVd",
+        "item_tATKrp",
+        "item_4hAnzE",
+        "item_ipctEF"
+      ],
+      "name": "Collapsible tabs",
+      "settings": {
+        "container": "container",
+        "color_scheme": "",
+        "image_position": "left",
+        "column_gap": 100,
+        "heading": "",
+        "heading_size": "h3",
+        "subheading": "",
+        "description": "",
+        "header_alignment": "center",
+        "padding_top": 0,
+        "padding_bottom": 0,
+        "animations": "inherit",
+        "custom_class": ""
+      }
+    }
+  },
+  "order": [
+    "main",
+    "image_with_text_nTNKUG",
+    "collapsible_tabs_Kgn7ij"
+  ]
+}

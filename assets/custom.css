@@ -1,0 +1,124 @@
+.m-product-card__tags {
+  align-items: flex-start;
+  right: 18px;
+  container-type: inline-size;
+  container-name: product-tags;
+}
+
+.m-product-tag.m-product-tag--saleoff {
+  order: 999;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 54px;
+  height: 54px;
+  border-radius: 50%;
+  font-size: 1rem;
+  line-height: 1;
+  letter-spacing: 0;
+  text-align: center;
+  color: rgba(var(--text-white), 1);
+  background-color: rgb(var(--color-background));
+  text-transform: uppercase;
+}
+
+@container product-tags (min-width: 250px) {
+  .m-product-tag.m-product-tag--saleoff {
+    position: absolute;
+    right: 0;
+  }
+}
+
+.main-product__block-sale-message {
+  font-size: 87.5%;
+  font-weight: bold;
+  color: rgb(var(--color-price-sale));
+}
+
+@media screen and (min-width: 1024px) {
+  .m-mega-glamaco-submenu {
+    width: 16.67%;
+  }
+}
+
+.m-mega-glamaco-submenu .m-menu__link,
+.m-menu-mobile__link--glamaco-submenu {
+  font-weight: 600 !important;
+}
+
+.m-mega-menu__inner--glamaco_menu {
+  align-items: flex-start;
+}
+
+.m-mega-menu__inner--glamaco_menu .m-sub-menu__item--level-1 {
+  display: flex;
+  align-items: center;
+}
+
+.m-mega-menu__inner--glamaco_menu .m-sub-menu__item--level-1 svg,
+.m-menu-mobile__link--glamaco-submenu svg {
+  margin-right: 3px;
+}
+
+.m-mega-menu__inner--glamaco_menu .m-sub-menu--level-1.m\:w-full {
+  width: 83.33% !important;
+  flex-wrap: wrap;
+}
+
+@media screen and (min-width: 1280px) {
+  .m-menu__item--mega .m-mega-menu__inner--glamaco_menu .m-sub-menu__item--level-1 {
+    width: 20%;
+  }
+}
+
+p a {
+  text-decoration: underline;
+  color: #e55821;
+}
+
+.text-orange {
+  color: #e55821;
+}
+
+.m-product-card__name {
+  font-size: 0.928571428571429rem;
+}
+
+@media screen and (max-width: 768px) {
+  .m-link-lists--inline {
+    justify-content: center;
+  }
+}
+
+.m-collection-card .m-button:hover {
+  box-shadow: none;
+}
+
+@media screen and (max-width: 768px) {
+  .m-collection-page-header__inner {
+    padding-top: 0;
+    padding-bottom: 16px;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .also-in .m-section__header,
+  .also-in .m-section__heading {
+    margin-bottom: 12px;
+  }
+
+  .also-in .m-button {
+    padding: 5px 10px;
+  }
+}
+
+.m-button--primary {
+  background-color: var(--primary-color, #BF4147);
+  color: #fff;
+  border-color: var(--primary-color, #BF4147);
+}
+
+.m-custom-content__block-inner .m-richtext__description {
+  margin-left: auto;
+  margin-right: auto;
+}

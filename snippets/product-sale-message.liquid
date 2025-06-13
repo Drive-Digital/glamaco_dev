@@ -1,0 +1,41 @@
+{% for tag in product.tags %}
+  {% if tag contains 'tag__' %}
+    {%- liquid
+      assign variant = product.selected_or_first_available_variant
+      assign tag_content = tag | split: '__' | last
+      assign type = tag_content | split: '_' | first | downcase
+      assign tag_name = tag_content | split: '_' | last
+      assign date = nil
+      if type == 'saleoff'
+        assign color_scheme_class = color_scheme_class | append: settings.saleoff_badge_color_scheme
+        assign date = tag_name | date: '%Y-%m-%d'
+        assign now_date = 'now' | date: '%Y-%m-%d'
+        assign save_amount = 0
+        assign discount = 0
+        assign compare_at_price = variant.compare_at_price
+        assign price = variant.price
+
+        if is_trade_customer
+          assign compare_at_price = variant.metafields.webstorelink.trade_compare_at_price.value | times: 100
+          assign price = variant.metafields.webstorelink.trade_price.value | times: 100
+        endif
+
+        if tag_name == 'saleoff' or date >= now_date and compare_at_price > price
+          assign save_amount = compare_at_price | minus: price
+          assign discount = save_amount | times: 100.0 | divided_by: compare_at_price | round
+        endif
+      endif
+    -%}
+    {% if type == 'saleoff' %}
+      <span class="main-product__block-sale-message m-price__badge-sale" data-type="percentage">
+        <span data-saved-price>{{ discount }}%</span>
+        {% if date != 'saleoff' %}
+          {% assign date = date | date: "%b %d" %}
+          &nbsp;{{ 'products.product.sale_off_with_date' | t: date: date }}
+        {% else %}
+          &nbsp;{{ 'products.product.sale_off' | t }}
+        {% endif %}
+      </span>
+    {% endif %}
+  {% endif %}
+{% endfor %}
