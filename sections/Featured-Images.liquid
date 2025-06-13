@@ -55,7 +55,13 @@
       {% if block.type == 'image_tile' %}
         <div class="featured-image-tile">
           <a href="{{ block.settings.tile_link }}" class="tile-link">
-            {{ block.settings.tile_image | image_url: width: 387 | image_tag }}
+            {% if block.settings.tile_image != blank %}
+              {{ block.settings.tile_image | image_url: width: 387 | image_tag }}
+            {% else %}
+              <div style="--aspect-ratio: 1/1;">
+                {{ placeholder_image | placeholder_svg_tag: 'm-placeholder-svg' }}
+              </div>
+            {% endif %}
             <div class="tile-content">
               <h3>{{ block.settings.tile_title }}</h3>
               <p>{{ block.settings.tile_description }}</p>
