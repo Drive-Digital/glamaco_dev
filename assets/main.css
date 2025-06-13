@@ -4012,13 +4012,18 @@ to {
     }
     .m-mixed-layout--mobile-scroll .m-mixed-layout__inner>* {
         flex: none;
-        width: var(--mobile-column-width,  66.66vw) !important;
+        width: var(--mobile-column-width,  40vw) !important;
     }
     .m-mixed-layout--mobile-scroll .m-mixed-layout__inner::after {
         content: "";
         flex: 0 0 var(--offset-x);
     }
 }
+
+@media screen and (max-width: 990px) {
+
+}
+
 .m-accordion--item-button {
     cursor: pointer;
     position: relative;
