@@ -4023,7 +4023,7 @@ to {
 @media screen and (max-width: 990px) {
     .m-mixed-layout--mobile-scroll .m-mixed-layout__inner>* {
         flex: none;
-        width: var(--mobile-column-width,  45vw) !important;
+        width: var(--mobile-column-width,  50vw) !important;
     }
 }
 
