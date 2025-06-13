@@ -4027,6 +4027,13 @@ to {
     }
 }
 
+@media screen and (max-width: 767px) {
+    .m-mixed-layout--mobile-scroll .m-mixed-layout__inner>* {
+        flex: none;
+        width: var(--mobile-column-width,  66.66vw) !important;
+    }
+}
+
 .m-accordion--item-button {
     cursor: pointer;
     position: relative;
