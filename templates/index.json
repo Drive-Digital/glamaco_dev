@@ -419,7 +419,9 @@
       ],
       "custom_css": [],
       "settings": {
-        "section_heading": "Promotions"
+        "section_heading": "Promotions",
+        "desktop_column": 3,
+        "mobile_column": "1"
       }
     },
     "collection_list_yPkqJh": {
