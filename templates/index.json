@@ -348,7 +348,7 @@
         "enable_slider": true,
         "show_navigation": true,
         "show_pagination": true,
-        "mobile_disable_slider": false,
+        "mobile_disable_slider": true,
         "use_scroll_mobile": true,
         "item_gap_mobile": 16,
         "padding_top": 20,
