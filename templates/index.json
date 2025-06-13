@@ -421,7 +421,7 @@
         ":root {--tw: 300px; --th: 400px;}",
         ".featured-images-section {text-align: center; padding: 40px 20px;}",
         ".featured-images-section h2 {margin-bottom: 40px;}",
-        ".featured-images-grid{gap: 20px;}",
+        ".featured-images-grid {gap: 20px;}",
         "@media screen and (min-width: 768px) {.featured-images-grid {display: grid; grid-template-columns: repeat(3, 1fr); max-width: 1320px; margin: 0 0; }}",
         ".featured-image-tile {text-align: center; width: var(--tw);}",
         ".featured-image-tile img {width: 100%; height: var(--th); object-fit: cover; border-radius: 8px;}"
