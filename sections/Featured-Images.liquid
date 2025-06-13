@@ -49,6 +49,10 @@
 {% endschema %}
 
 {%  style %} 
+  :root {
+    --tw: 100%;
+    --th: 100%;
+  }
 
   .featured-images-section {
     text-align: center;
@@ -61,11 +65,11 @@
 
   .featured-images-grid {
     gap: 20px;
+    display: grid;
   }
 
   @media screen and (min-width: 768px) {
     .featured-images-grid {
-      display: grid;
       grid-template-columns: repeat(3, 1fr);
       max-width: 1320px;
       margin: 0 0;
@@ -79,7 +83,7 @@
 
   .featured-image-tile > * {
     width: 100%;
-    height: 100%;
+    height: var(--th);
     object-fit: cover;
     border-radius: 8px;
   }
