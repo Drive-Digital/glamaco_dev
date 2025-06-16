@@ -89,7 +89,7 @@ if (!customElements.get("m-product-tabs")) {
       const mobileDisableSlider = this.dataset.mobileDisableSlider === "true";
       const slider = sliderContainer.querySelector(".m-mixed-layout__wrapper");
       const controlsContainer = sliderContainer.querySelector(".m-slider-controls");
-
+      console.log(MinimogTheme.config.mqlMobile);
       if (MinimogTheme.config.mqlMobile && mobileDisableSlider) {
         controlsContainer && controlsContainer.classList.add("m:hidden");
         slider.classList.remove("swiper-container");
