@@ -66,6 +66,8 @@
     "inventory_hide_backordered": true,
     "show_inventory_count": "low_inventory",
     "hot_badge_color_scheme": "badge-hot",
+    "sale_badge_color_scheme": "badge-hot",
+    "saleoff_badge_color_scheme": "badge-hot",
     "share_facebook": true,
     "share_pinterest": true,
     "social_twitter_link": "",
