@@ -125,7 +125,7 @@
         <p class="m-section__subheading{% if animated %} m-scroll-trigger animate--{{ animation_effect }}{% endif %}">{{ section.settings.subheading }}</p>
       {% endif %}
       {% if section.settings.heading != blank %}
-        <h2 class="m-section__heading {{ section.settings.heading_size | default: 'h3' }}{% if animated %} m-scroll-trigger animate--{{ animation_effect }}{% endif %}">{{ section.settings.heading }}</h2>
+        <h2 class="m-section__heading {{ section.settings.heading_size | default: 'h4' }}{% if animated %} m-scroll-trigger animate--{{ animation_effect }}{% endif %}">{{ section.settings.heading }}</h2>
       {% endif %}
       {% if section.settings.description != blank %}
         <div class="m-section__description{% if animated %} m-scroll-trigger animate--{{ animation_effect }}{% endif %}">{{ section.settings.description }}</div>
@@ -287,11 +287,11 @@
       "options": [
         {
           "label": "Medium",
-          "value": "h3"
+          "value": "h4"
         },
         {
           "label": "Large",
-          "value": "h2"
+          "value": "h3"
         }
       ]
     },
