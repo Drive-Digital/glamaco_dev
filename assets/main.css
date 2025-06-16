@@ -2855,13 +2855,6 @@ m-select-component select {
     padding-bottom: 0;
     margin-bottom: 0;
 }
-
-@media screen and (min-width: 1024px) {
-    .m-swiper-overflow {
-        --swiper-container-offset-top:  30px;
-        --swiper-container-side-spacing:  calc(-1 * var(--column-gap)/2);
-    }
-}
 .swiper-slide {
     flex-shrink: 0;
     width: 100%;
@@ -3987,6 +3980,7 @@ to {
         width: 100%;
         display: grid;
         grid-template-columns: repeat(var(--grid-columns-mobile,  2),  minmax(0,  1fr));
+        gap: var(--column-gap);
     }
     .m-mixed-layout--mobile-grid .m-mixed-layout__inner .m\:column {
         width: 100%;
