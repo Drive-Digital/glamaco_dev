@@ -96,9 +96,6 @@ if (!customElements.get("m-product-tabs")) {
         slider.classList.remove("swiper-container");
         if (slider.swiper) slider.swiper.destroy(false, true);
       } else {
-        if (mediaQuery.matches) {
-          slider.classList.add("swiper-container");
-        }
         controlsContainer && controlsContainer.classList.remove("m:hidden");
         setTimeout(() => {
           this.initSlider(sliderContainer);
