@@ -40,6 +40,8 @@
 .collection-banner_text .container-fluid{
     display: flex;
     flex-wrap: wrap;
+    height: 100%;
+    width: 100%;
 }
 
 .collection-banner--theme_light h1{
