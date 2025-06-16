@@ -17,7 +17,7 @@
         "breadcrumbs_layout": "outside",
         "full_width": false,
         "horizontal_content_alignment": "start",
-        "vertical_content_alignment": "center",
+        "vertical_content_alignment": "end",
         "text_color": "light",
         "overlay_color": 10,
         "min_height": 150
