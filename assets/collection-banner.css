@@ -12,7 +12,12 @@
     z-index: 1;
 }
 
-.collection-banner img.featured_image-thumbnail{
+.collection-featured_image{
+    position: relative;
+    line-height: 1;
+}
+
+.collection-featured_image img{
     position: absolute;
     left: 0;
     top: 0;
@@ -30,9 +35,6 @@
     width: 100%;
     height: 100%;
     z-index: 2;
-    max-width: calc(var(--fluid-container-width,  1620px) + var(--fluid-container-offset)*2);
-    display: block;
-    margin: auto;
 }
 
 .collection-banner_text .container-fluid{
