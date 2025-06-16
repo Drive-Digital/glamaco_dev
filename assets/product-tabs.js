@@ -92,12 +92,13 @@ if (!customElements.get("m-product-tabs")) {
       const mediaQuery = window.matchMedia("screen and (max-width: 1200px)");
 
       if (mediaQuery.matches) {
+        console.log('1');
         controlsContainer && controlsContainer.classList.add("m:hidden");
         slider.classList.remove("swiper-container");
         if (slider.swiper) slider.swiper.destroy(false, true);
       } else {
         slider.classList.add("swiper-container");
-        console.log('hit');
+        console.log('2');
         controlsContainer && controlsContainer.classList.remove("m:hidden");
         setTimeout(() => {
           this.initSlider(sliderContainer);
