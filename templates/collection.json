@@ -9,6 +9,21 @@
  */
 {
   "sections": {
+    "collection_banner_new_dfgqAy": {
+      "type": "collection-banner-new",
+      "name": "New - Collection Banner",
+      "settings": {
+        "show_featured_image": true,
+        "breadcrumbs_layout": "outside",
+        "full_width": false,
+        "horizontal_content_alignment": "left",
+        "vertical_content_alignment": "end",
+        "text_color": "light",
+        "overlay_color": 10,
+        "padding_top": 20,
+        "padding_bottom": 20
+      }
+    },
     "collection-header": {
       "type": "collection-page-header",
       "settings": {
@@ -183,7 +198,6 @@
         "image_K3BCqM": {
           "type": "image",
           "settings": {
-            "image": "shopify://shop_images/Kobo_Category.png",
             "image_by_url": "",
             "image_link": "",
             "max_width": "150px"
@@ -192,7 +206,6 @@
         "image_E9dDp7": {
           "type": "image",
           "settings": {
-            "image": "shopify://shop_images/MJ_Colour_Category.png",
             "image_by_url": "",
             "image_link": "",
             "max_width": "150px"
@@ -201,7 +214,6 @@
         "image_EPwD9y": {
           "type": "image",
           "settings": {
-            "image": "shopify://shop_images/Hair_Smart_Category.png",
             "image_by_url": "",
             "image_link": "",
             "max_width": "150px"
@@ -210,7 +222,6 @@
         "image_hnPiwK": {
           "type": "image",
           "settings": {
-            "image": "shopify://shop_images/Nook_Category.png",
             "image_by_url": "",
             "image_link": "",
             "max_width": "150px"
@@ -294,6 +305,7 @@
     }
   },
   "order": [
+    "collection_banner_new_dfgqAy",
     "collection-header",
     "collection_list_JEqxJE",
     "main",
