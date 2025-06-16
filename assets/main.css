@@ -2033,7 +2033,7 @@ input:not(.m-quantity__input, .form-field, .m-facets-price--range), textarea:not
 }
 @media screen and (min-width: 1280px) {
     .container-fluid {
-    padding: 0 var(--fluid-container-offset,  60px);
+    padding: 0 15px;
 }
 }.container-full {
     width: 100%;
