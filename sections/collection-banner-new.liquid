@@ -14,7 +14,7 @@
 <div class="collection-banner collection-banner-{{ section.id }}">
     {% if display_featured_image %}
         {% assign aspect_ratio = featured_image.height | times: 1.0 | divided_by: featured_image.width %}
-        <div class="collection-featured_image container-fluid" style="padding-top: {{ aspect_ratio | times: 100 }}%;" data-height="{{featured_image.height}}" data-width="{{featured_image.width}}">
+        <div class="collection-featured_image {% unless section_full_width %}container-fluid{% endunless %}" style="padding-top: {{ aspect_ratio | times: 100 }}%;" data-height="{{featured_image.height}}" data-width="{{featured_image.width}}">
             {{ featured_image |  image_url: width: 2048 |  image_tag: class: 'featured_image-thumbnail', loading: 'lazy'  }}
         </div>
     {% endif %}
