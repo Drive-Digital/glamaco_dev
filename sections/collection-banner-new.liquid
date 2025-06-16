@@ -3,7 +3,7 @@
     liquid
     assign featured_image = collection.image
     assign display_featured_image = section.settings.show_featured_image
-    assign breadcrumbs_layout = section.settings.breadcrumbs_layout
+    assign breadcrumbs = section.settings.show_breadcrumbs
     assign section_full_width = section.settings.full_width
     assign horizontal_alignment = section.settings.horizontal_content_alignment
     assign vertical_alignment = section.settings.vertical_content_alignment
@@ -34,9 +34,11 @@
         min-height: {{ section.settings.min_height }}px;
     }
 {% endstyle %}
+{% if breadcrumbs %}
 <div class="collection__breadcrumb">
 {% render 'breadcrumb', animated: true, animation_effect: true%}
 </div>
+{% endif %}
 <div class="collection-banner collection-banner-{{ section.id }} collection-banner--theme_{{ text_color }}">
     {% if display_featured_image %}
         {% assign aspect_ratio = featured_image.height | times: 1.0 | divided_by: featured_image.width %}
@@ -73,28 +75,14 @@
         "content": "Breadcrumbs"
     },
     {
-        "type": "select",
-        "id": "breadcrumbs_layout",
-        "options": [
-            {
-                "label": "inside",
-                "value": "inside"
-            },
-            {
-                "label": "outside",
-                "value": "outside"
-            },
-            {
-                "label": "hide",
-                "value": "hide"
-            }
-        ],
-        "label": "Layout",
-        "default": "outside"
+        "type": "checkbox",
+        "id": "show_breadcrumbs",
+        "label": "Display Breadcrumbs",
+        "default": true
     },
     {
         "type": "header",
-        "content": "Apperance"
+        "content": "Appearance"
     },
     {
         "type": "checkbox",
