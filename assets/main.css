@@ -4822,3 +4822,17 @@ variant-picker .m-product-option--swatch .m-product-option--node__label[data-opt
     padding: 2px 8px;
 }
 }
+
+
+.product-image_placholder{
+    overflow: hidden;
+    border: 1px solid #f1f1f1;
+}
+.product-image_placholder img{
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    object-position: center;
+    display: block;
+    margin: auto;
+}
