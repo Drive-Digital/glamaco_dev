@@ -3955,20 +3955,10 @@ to {
     z-index: 10;
 }
 }.m-mixed-layout {
-    margin-left: max(-15px, var(--column-gap-mobile,  var(--column-gap))/-2);
-    margin-right: max(-15px, var(--column-gap-mobile,  var(--column-gap))/-2);
+    margin-left: 0;
+    margin-right: 0;
 }
-@media screen and (min-width: 768px) {
-    .m-mixed-layout {
-    margin-left: min(-7.5px, var(--column-gap-mobile,  var(--column-gap))/-2);
-    margin-right: min(-7.5px, var(--column-gap-mobile,  var(--column-gap))/-2);
-}
-}@media screen and (min-width: 1024px) {
-    .m-mixed-layout {
-    margin-left: calc(var(--column-gap,  0)/-2);
-    margin-right: calc(var(--column-gap,  0)/-2);
-}
-}.m-mixed-layout__inner {
+.m-mixed-layout__inner {
     margin-left: 0;
     margin-right: 0;
 }
