@@ -37,6 +37,11 @@
     z-index: 2;
 }
 
+.collection-banner_text .container-fluid{
+    display: flex;
+    flex-wrap: wrap;
+}
+
 .collection-banner--theme_light h1{
     color: #000000;
 }
