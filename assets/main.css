@@ -104,8 +104,8 @@
     grid-template-rows: repeat(12,  minmax(0,  1fr));
 }
 .m\:column {
-    padding-left: calc(var(--column-gap-mobile,  var(--column-gap))/2);
-    padding-right: calc(var(--column-gap-mobile,  var(--column-gap))/2);
+    padding-left: 0;
+    padding-right: 0;
 }
 @media screen and (min-width: 768px) {
     .m\: column {
