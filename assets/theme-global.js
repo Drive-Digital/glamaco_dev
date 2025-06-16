@@ -18,7 +18,7 @@ MinimogTheme.config = {
   mqlMobile: false,
   mqlTablet: false,
   mediaQueryMobile: "screen and (max-width: 767px)",
-  mediaQueryTablet: "screen and (max-width: 1023px",
+  mediaQueryTablet: "screen and (max-width: 1200px",
 };
 
 MinimogTheme.initWhenVisible = function (options) {
