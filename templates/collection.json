@@ -15,7 +15,7 @@
       "settings": {
         "show_featured_image": true,
         "breadcrumbs_layout": "outside",
-        "full_width": true,
+        "full_width": false,
         "horizontal_content_alignment": "left",
         "vertical_content_alignment": "end",
         "text_color": "light",
