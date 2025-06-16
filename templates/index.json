@@ -77,7 +77,7 @@
         "container": "container-fluid",
         "color_scheme": "",
         "item_per_row": 3,
-        "item_gap": 20,
+        "item_gap": 0,
         "item_gap_mobile": 10,
         "card_color_scheme": "footer",
         "card_style": "horizontal",
