@@ -25,7 +25,6 @@
     },
     "collection-header": {
       "type": "collection-page-header",
-      "disabled": true,
       "settings": {
         "color_scheme": "default",
         "container": "container",
