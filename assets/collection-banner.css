@@ -1,3 +1,17 @@
+.collection-banner{
+    position: relative;
+}
+
+.collection-banner_overlay::before{
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+}
+
 .collection-featured_image{
     position: relative;
     line-height: 1;
@@ -20,5 +34,5 @@
     top: 0;
     width: 100%;
     height: 100%;
-    z-index: 1;
+    z-index: 2;
 }
