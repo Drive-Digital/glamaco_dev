@@ -505,5 +505,5 @@
     {% endcase %}
   </media-gallery>
 {% else %}
-  {{ 'product-1' | placeholder_svg_tag: 'm-placeholder-svg' }}
+  {{ images['glamaco-placeholder.webp'] |  image_url: width: 480, height: 480 |  image_tag: class: 'product-image_placholder', loading: 'lazy'  }}
 {% endif %}
