@@ -88,9 +88,11 @@ if (!customElements.get("m-product-tabs")) {
     initSliderByScreenSize(sliderContainer) {
       const mobileDisableSlider = this.dataset.mobileDisableSlider === "true";
       const slider = sliderContainer.querySelector(".m-mixed-layout__wrapper");
-      const controlsContainer = sliderContainer.querySelector(".m-slider-controls");  
+      const controlsContainer = sliderContainer.querySelector(".m-slider-controls");
+      const mediaQuery = window.matchMedia('(max-width: 1200px)');
 
-      if (MinimogTheme.config.mqlTablet && mobileDisableSlider) {
+      console.log(MinimogTheme.config.mqlMobile);
+      if (MinimogTheme.config.mqlMobile && mobileDisableSlider) {
         controlsContainer && controlsContainer.classList.add("m:hidden");
         slider.classList.remove("swiper-container");
         if (slider.swiper) slider.swiper.destroy(false, true);
