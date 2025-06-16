@@ -234,6 +234,7 @@
     },
     "empty_space_Yg8pUA": {
       "type": "empty-space",
+      "disabled": true,
       "settings": {
         "container": "container-fluid",
         "color_scheme": "",
