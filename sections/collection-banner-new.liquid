@@ -18,6 +18,10 @@
             {{ featured_image |  image_url: width: 2048 |  image_tag: class: 'featured_image-thumbnail', loading: 'lazy'  }}
         </div>
     {% endif %}
+
+    <div class="container-fluid">
+        <h1 class="collection-banner_title">{{ collection.title }}</h1>
+    </div>
 </div>
 
 
