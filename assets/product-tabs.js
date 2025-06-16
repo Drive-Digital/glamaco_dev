@@ -91,13 +91,13 @@ if (!customElements.get("m-product-tabs")) {
       const controlsContainer = sliderContainer.querySelector(".m-slider-controls");
       const mediaQuery = window.matchMedia("screen and (max-width: 1200px)");
 
-      console.log(MinimogTheme.config.mqlMobile);
       if (MinimogTheme.config.mqlTablet && mobileDisableSlider) {
         controlsContainer && controlsContainer.classList.add("m:hidden");
         slider.classList.remove("swiper-container");
         if (slider.swiper) slider.swiper.destroy(false, true);
       } else {
         slider.classList.add("swiper-container");
+        console.log('hit');
         controlsContainer && controlsContainer.classList.remove("m:hidden");
         setTimeout(() => {
           this.initSlider(sliderContainer);
