@@ -256,8 +256,8 @@
             }}
           </responsive-image>
         {% else %}
-          <div style="--aspect-ratio: {{ image_ratio }}">
-            {{ 'product-1' | placeholder_svg_tag: 'm-placeholder-svg' }}
+          <div class="product-image_placholder">
+            {{ images['glamaco-placeholder.webp'] |  image_url: width: 480, height: 480 |  image_tag: class: 'product-image_placholder_thubmbnail', loading: 'lazy'  }}
           </div>
         {% endif %}
       {% endif %}
