@@ -11,7 +11,17 @@
     assign overlay_percentage = section.settings.overlay_color
 %}
 
-<div class="collection-banner collection-banner-{{ section.id }}">
+{%  style  %}
+    .collection-banner--theme_light .collection-banner_overlay::before{
+        background: rgb(255 255 255 / {{ overlay_percentage }}% );
+    }
+    
+    .collection-banner--theme_dark .collection-banner_overlay::before{
+        background: rgb(0 0 0 / {{ overlay_percentage }}% );
+    }
+{% endstyle %}
+
+<div class="collection-banner collection-banner-{{ section.id }} collection-banner--theme_{{ text_color }}">
     {% if display_featured_image %}
         {% assign aspect_ratio = featured_image.height | times: 1.0 | divided_by: featured_image.width %}
         <div class="collection-featured_image {% if overlay_percentage > 0 %}collection-banner_overlay{% endif %} {% unless section_full_width %}container-fluid{% endunless %}" style="padding-top: {{ aspect_ratio | times: 100 }}%;">
