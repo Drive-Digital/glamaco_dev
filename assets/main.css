@@ -1,18 +1,18 @@
 .m\:grid, .m\:flex {
-    margin-left: max(-15px, var(--column-gap-mobile,  var(--column-gap))/-2);
-    margin-right: max(-15px, var(--column-gap-mobile,  var(--column-gap))/-2);
+    margin-left: 0;
+    margin-right: 0;
     row-gap: var(--row-gap-mobile,  var(--column-gap-mobile,  --column-gap));
 }
 @media screen and (min-width: 768px) {
     .m\: grid, .m\:flex {
-    margin-left: min(-7.5px, var(--column-gap-mobile,  var(--column-gap))/-2);
-    margin-right: min(-7.5px, var(--column-gap-mobile,  var(--column-gap))/-2);
+    margin-left: 0;
+    margin-right: 0;
 }
 }@media screen and (min-width: 1024px) {
     .m\: grid, .m\:flex {
     row-gap: var(--row-gap,  var(--column-gap));
-    margin-left: calc(var(--column-gap,  0)/-2);
-    margin-right: calc(var(--column-gap,  0)/-2);
+    margin-left: 0;
+    margin-right: 0;
 }
 }.m\:grid {
     display: grid;
