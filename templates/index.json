@@ -344,7 +344,7 @@
         "pcard_image_ratio": "",
         "show_vendor": false,
         "items_per_row": 5,
-        "item_gap": 30,
+        "item_gap": 0,
         "enable_slider": true,
         "show_navigation": true,
         "show_pagination": true,
