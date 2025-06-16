@@ -2852,19 +2852,17 @@ m-select-component select {
     transform: rotateX(180deg);
 }
 .m-swiper-overflow .swiper-container, .m-swiper-overflow .m-mixed-layout--mobile-scroll {
-    padding-bottom: 5px;
-    margin-bottom: -5px;
+    padding-bottom: 0;
+    margin-bottom: 0;
 }
+
 @media screen and (min-width: 1024px) {
     .m-swiper-overflow {
-    --swiper-container-offset-top:  30px;
-    --swiper-container-side-spacing:  calc(-1 * var(--column-gap)/2);
+        --swiper-container-offset-top:  30px;
+        --swiper-container-side-spacing:  calc(-1 * var(--column-gap)/2);
+    }
 }
-.m-swiper-overflow .swiper-container {
-    padding: var(--swiper-container-offset-top) calc(var(--column-gap,  0px)/2 - 1px) 60px;
-    margin: calc(var(--swiper-container-offset-top)*-1) var(--swiper-container-side-spacing,  auto) -60px;
-}
-}.swiper-slide {
+.swiper-slide {
     flex-shrink: 0;
     width: 100%;
     height: 100%;
