@@ -12,12 +12,7 @@
     z-index: 1;
 }
 
-.collection-featured_image{
-    position: relative;
-    line-height: 1;
-}
-
-.collection-featured_image img{
+.collection-banner img.featured_image-thumbnail{
     position: absolute;
     left: 0;
     top: 0;
