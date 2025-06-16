@@ -27,8 +27,13 @@
 
     .collection-banner-{{ section.id }} .collection-banner_text .container-fluid{
         padding-block: 20px;
+    }
+
+    {% if featured_image != blank %}
+    .collection-banner-{{ section.id }} .collection-banner_text .container-fluid{
         padding-inline: 30px;
     }
+    {% endif %}
 
     .collection-featured_image, .collection-banner_text{
         min-height: {{ section.settings.min_height }}px;
