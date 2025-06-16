@@ -37,7 +37,7 @@
         <span class="{{ classes }} m-product-tag m-product-tag--{{ type }} m-gradient {{ color_scheme_class }}">
             {%- if type == 'saleoff' -%}
                 {%- if discount > 0 -%}
-                    {{ percentage_amount: discount }}
+                    {{ 'products.product.percentage_off' | t: percentage_amount: discount }}
                 {%- endif -%}
             {%- else -%}
                 {{ tag_name }}
