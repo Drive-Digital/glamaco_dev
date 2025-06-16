@@ -14,7 +14,7 @@
       "name": "New - Collection Banner",
       "settings": {
         "show_featured_image": true,
-        "breadcrumbs_layout": "outside",
+        "show_breadcrumbs": true,
         "full_width": false,
         "horizontal_content_alignment": "start",
         "vertical_content_alignment": "end",
@@ -25,6 +25,7 @@
     },
     "collection-header": {
       "type": "collection-page-header",
+      "disabled": true,
       "settings": {
         "color_scheme": "default",
         "container": "container",
