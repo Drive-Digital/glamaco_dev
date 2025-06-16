@@ -83,7 +83,7 @@
         "collection_block_dmeVPh"
       ],
       "settings": {
-        "heading": "",
+        "heading": "Also in",
         "heading_size": "h3",
         "subheading": "",
         "description": "",
@@ -109,8 +109,8 @@
         "use_scroll_mobile": true,
         "mobile_gap": 10,
         "hidden_slide_control_mobile": false,
-        "padding_top": 0,
-        "padding_bottom": 0,
+        "padding_top": 20,
+        "padding_bottom": 20,
         "custom_class": "",
         "animations": "inherit"
       }
