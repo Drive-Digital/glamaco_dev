@@ -88,8 +88,7 @@ if (!customElements.get("m-product-tabs")) {
     initSliderByScreenSize(sliderContainer) {
       const mobileDisableSlider = this.dataset.mobileDisableSlider === "true";
       const slider = sliderContainer.querySelector(".m-mixed-layout__wrapper");
-      const controlsContainer = sliderContainer.querySelector(".m-slider-controls");
-      const mediaQuery = window.matchMedia('(max-width: 1200px)');
+      const controlsContainer = sliderContainer.querySelector(".m-slider-controls");  
 
       if (MinimogTheme.config.mqlTablet && mobileDisableSlider) {
         controlsContainer && controlsContainer.classList.add("m:hidden");
