@@ -89,7 +89,7 @@ if (!customElements.get("m-product-tabs")) {
       const mobileDisableSlider = this.dataset.mobileDisableSlider === "true";
       const slider = sliderContainer.querySelector(".m-mixed-layout__wrapper");
       const controlsContainer = sliderContainer.querySelector(".m-slider-controls");
-      const mediaQuery = window.matchMedia('(max-width: 1200px)');
+      const mediaQuery = window.matchMedia("screen and (max-width: 1200px)");
 
       console.log(MinimogTheme.config.mqlMobile);
       if (mediaQuery.matches) {
