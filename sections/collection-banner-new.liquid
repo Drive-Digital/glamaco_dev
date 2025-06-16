@@ -1,0 +1,100 @@
+
+
+
+{% schema %}
+{
+  "name": "Collection banner",
+  "class": "shopify-section-collection-banner",
+  "settings": [
+    {
+        "type": "header",
+        "content": "Featured Image"
+    },
+    {
+        "type": "checkbox",
+        "id": "show_featured_image",
+        "label": "Display Featured Image",
+        "default": true
+    },
+    {
+        "type": "header",
+        "content": "Breadcrumbs"
+    },
+    {
+        "type": "select",
+        "id": "breadcrumbs_layout",
+        "options": [
+            {
+                "label": "inside",
+                "value": "inside"
+            },
+            {
+                "label": "outside",
+                "value": "outside"
+            },
+            {
+                "label": "hide",
+                "value": "hide"
+            }
+        ],
+        "label": "Layout",
+        "default": "outside"
+    },
+    {
+        "type": "header",
+        "content": "Apperance"
+    },
+    {
+        "type": "checkbox",
+        "id": "full_width",
+        "label": "Section Full Width",
+        "default": false
+    },
+    {
+        "type": "select",
+        "id": "horizontal_content_alignment",
+        "options": [
+            {
+                "label": "left",
+                "value": "left"
+            },
+            {
+                "label": "center",
+                "value": "center"
+            },
+            {
+                "label": "right",
+                "value": "right"
+            }
+        ],
+        "label": "Horizontal Content Alignment",
+        "default": "left"
+    },
+    {
+        "type": "select",
+        "id": "vertical_content_alignment",
+        "options": [
+            {
+                "label": "top",
+                "value": "start"
+            },
+            {
+                "label": "center",
+                "value": "center"
+            },
+            {
+                "label": "bottom",
+                "value": "end"
+            }
+        ],
+        "label": "Vertical Content Alignment",
+        "default": "end"
+    }
+  ],
+    "presets": [
+        {
+            "name": "New - Collection Banner"
+        }
+    ]
+}
+{% endschema %}
