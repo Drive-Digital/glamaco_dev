@@ -104,8 +104,8 @@
     grid-template-rows: repeat(12,  minmax(0,  1fr));
 }
 .m\:column {
-    padding-left: 0;
-    padding-right: 0;
+    padding-left: calc(var(--column-gap-mobile,  var(--column-gap))/2);
+    padding-right: calc(var(--column-gap-mobile,  var(--column-gap))/2);
 }
 @media screen and (min-width: 768px) {
     .m\: column {
@@ -2852,10 +2852,19 @@ m-select-component select {
     transform: rotateX(180deg);
 }
 .m-swiper-overflow .swiper-container, .m-swiper-overflow .m-mixed-layout--mobile-scroll {
-    padding-bottom: 0;
-    margin-bottom: 0;
+    padding-bottom: 5px;
+    margin-bottom: -5px;
 }
-.swiper-slide {
+@media screen and (min-width: 1024px) {
+    .m-swiper-overflow {
+    --swiper-container-offset-top:  30px;
+    --swiper-container-side-spacing:  calc(-1 * var(--column-gap)/2);
+}
+.m-swiper-overflow .swiper-container {
+    padding: var(--swiper-container-offset-top) calc(var(--column-gap,  0px)/2 - 1px) 60px;
+    margin: calc(var(--swiper-container-offset-top)*-1) var(--swiper-container-side-spacing,  auto) -60px;
+}
+}.swiper-slide {
     flex-shrink: 0;
     width: 100%;
     height: 100%;
@@ -3955,10 +3964,20 @@ to {
     z-index: 10;
 }
 }.m-mixed-layout {
-    margin-left: 0;
-    margin-right: 0;
+    margin-left: max(-15px, var(--column-gap-mobile,  var(--column-gap))/-2);
+    margin-right: max(-15px, var(--column-gap-mobile,  var(--column-gap))/-2);
 }
-.m-mixed-layout__inner {
+@media screen and (min-width: 768px) {
+    .m-mixed-layout {
+    margin-left: min(-7.5px, var(--column-gap-mobile,  var(--column-gap))/-2);
+    margin-right: min(-7.5px, var(--column-gap-mobile,  var(--column-gap))/-2);
+}
+}@media screen and (min-width: 1024px) {
+    .m-mixed-layout {
+    margin-left: calc(var(--column-gap,  0)/-2);
+    margin-right: calc(var(--column-gap,  0)/-2);
+}
+}.m-mixed-layout__inner {
     margin-left: 0;
     margin-right: 0;
 }
@@ -3970,7 +3989,6 @@ to {
         width: 100%;
         display: grid;
         grid-template-columns: repeat(var(--grid-columns-mobile,  2),  minmax(0,  1fr));
-        gap: var(--column-gap);
     }
     .m-mixed-layout--mobile-grid .m-mixed-layout__inner .m\:column {
         width: 100%;
