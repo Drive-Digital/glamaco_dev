@@ -15,12 +15,28 @@
     .collection-banner--theme_light .collection-banner_overlay::before{
         background: rgb(255 255 255 / {{ overlay_percentage }}% );
     }
-    
+
     .collection-banner--theme_dark .collection-banner_overlay::before{
         background: rgb(0 0 0 / {{ overlay_percentage }}% );
     }
-{% endstyle %}
 
+    .collection-banner_text .container-fluid{
+        justify-content: {{ horizontal_alignment }};
+        align-items: {{ vertical_alignment }};
+    }
+
+    .collection-banner-{{ section.id }} .collection-banner_text .container-fluid{
+        padding-block: 20px;
+        padding-inline: 30px;
+    }
+
+    .collection-featured_image, .collection-banner_text{
+        min-height: {{ section.settings.min_height }}px;
+    }
+{% endstyle %}
+<div class="collection__breadcrumb">
+{% render 'breadcrumb', animated: true, animation_effect: true%}
+</div>
 <div class="collection-banner collection-banner-{{ section.id }} collection-banner--theme_{{ text_color }}">
     {% if display_featured_image %}
         {% assign aspect_ratio = featured_image.height | times: 1.0 | divided_by: featured_image.width %}
@@ -31,7 +47,7 @@
 
     <div class="collection-banner_text">
         <div class="container-fluid">
-            <h1 class="collection-banner_title">{{ collection.title }}</h1>
+            <h1 class="collection-banner_title m:text-4xl">{{ collection.title }}</h1>
         </div>
     </div>
 </div>
@@ -92,7 +108,7 @@
         "options": [
             {
                 "label": "left",
-                "value": "left"
+                "value": "start"
             },
             {
                 "label": "center",
@@ -100,11 +116,11 @@
             },
             {
                 "label": "right",
-                "value": "right"
+                "value": "end"
             }
         ],
         "label": "Horizontal Content Alignment",
-        "default": "left"
+        "default": "start"
     },
     {
         "type": "select",
@@ -152,28 +168,17 @@
         "label": "Overlay Color"
     },
     {
-      "type": "header",
-      "content": "Section Padding"
+        "type": "header",
+        "content": "Container"
     },
     {
-      "type": "range",
-      "id": "padding_top",
-      "label": "Padding Top",
-      "default": 50,
-      "min": 0,
-      "max": 100,
-      "step": 2,
-      "unit": "px"
-    },
-    {
-      "type": "range",
-      "id": "padding_bottom",
-      "label": "Padding Bottom",
-      "default": 50,
-      "min": 0,
-      "max": 100,
-      "step": 2,
-      "unit": "px"
+        "type": "range",
+        "id": "min_height",
+        "min": 10,
+        "max": 400,
+        "step": 10,
+        "default": 150,
+        "label": "Minimum Height"
     }
   ],
     "presets": [
