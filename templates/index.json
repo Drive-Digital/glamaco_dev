@@ -217,6 +217,9 @@
         "slider_item_NYhzp7",
         "slider_item_VxbBHQ"
       ],
+      "custom_css": [
+        ":root{--section-padding-top: 30px;--section-padding-bottom: 30px;}"
+      ],
       "settings": {
         "container": "container-fluid",
         "slideshow_height": "adapt",
