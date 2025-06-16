@@ -217,9 +217,7 @@
         "slider_item_NYhzp7",
         "slider_item_VxbBHQ"
       ],
-      "custom_css": [
-        ":root {--section-padding-top-laptop: calc(30px * 0.8); --section-padding-bottom-laptop: calc(30px * 0.8); --section-padding-top-tablet: calc(30px * 0.6); --section-padding-bottom-tablet: calc(30px * 0.6);}"
-      ],
+      "custom_css": [],
       "settings": {
         "container": "container-fluid",
         "slideshow_height": "adapt",
@@ -237,7 +235,6 @@
     },
     "empty_space_Yg8pUA": {
       "type": "empty-space",
-      "disabled": true,
       "settings": {
         "container": "container-fluid",
         "color_scheme": "",
