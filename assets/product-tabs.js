@@ -91,7 +91,7 @@ if (!customElements.get("m-product-tabs")) {
       const controlsContainer = sliderContainer.querySelector(".m-slider-controls");
       const mediaQuery = window.matchMedia("screen and (max-width: 1200px)");
 
-      if (MinimogTheme.config.mqlTablet && mobileDisableSlider) {
+      if (mediaQuery.matches) {
         controlsContainer && controlsContainer.classList.add("m:hidden");
         slider.classList.remove("swiper-container");
         if (slider.swiper) slider.swiper.destroy(false, true);
