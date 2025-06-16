@@ -16,7 +16,7 @@
         "show_featured_image": true,
         "breadcrumbs_layout": "outside",
         "full_width": false,
-        "horizontal_content_alignment": "left",
+        "horizontal_content_alignment": "center",
         "vertical_content_alignment": "end",
         "text_color": "light",
         "overlay_color": 20,
