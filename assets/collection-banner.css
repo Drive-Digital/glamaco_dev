@@ -36,3 +36,11 @@
     height: 100%;
     z-index: 2;
 }
+
+.collection-banner--theme_light h1{
+    color: #000000;
+}
+
+.collection-banner--theme_dark h1{
+    color: #ffffff;
+}
