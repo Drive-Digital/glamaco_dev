@@ -7,7 +7,12 @@
     background: rgb(var(--color-background-secondary));
 }
 
+.m-collection-list__wrapper .m-button:hover{
+    background: rgb(var(--color-button-hover));
+}
+
 .m-section__heading{
     text-transform: uppercase;
     font-size: 12px;
 }
+
