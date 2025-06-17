@@ -19,7 +19,7 @@
         "horizontal_content_alignment": "start",
         "vertical_content_alignment": "end",
         "text_color": "light",
-        "overlay_color": 30,
+        "overlay_color": 20,
         "min_height": 150
       }
     },
