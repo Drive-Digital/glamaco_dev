@@ -1,0 +1,56 @@
+
+
+{%  style  %}
+
+{% endstyle %}
+
+<div class="collection_description">
+    <div class="container-fluid">
+        <div class="section-entry_text">
+            {%
+                liquid
+                assign heading = section.settings.section_heading
+                assign description = section.settings.section_description
+            %}
+            {% if heading != blank %}
+                <h2 class="section_heading">{{ heading }}</h2>
+            {% endif %}
+            {% if description != blank %}
+                <div class="section_rte">
+                    {{ description }}
+                </div>
+            {% endif %}
+        </div>
+    </div>
+</div>
+
+{%  schema  %}
+{
+    "name": "Collection Description",
+    "settings": [
+        {
+            "type": "header",
+            "content": "Heading"
+        },
+        {
+            "type": "inline_richtext",
+            "id": "section_heading",
+            "label": "Section Heading"
+        },
+        {
+            "type": "header",
+            "content": "Description"
+        },
+        {
+            "type": "richtext",
+            "id": "section_description",
+            "label": "Section Description"
+        }
+    ],
+    "presets": [
+        {
+            "name": "Collection Description"
+        }
+    ]
+}
+{% endschema %}

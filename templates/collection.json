@@ -256,83 +256,6 @@
         "custom_class": "",
         "animations": "inherit"
       }
-    },
-    "rich_text_UHqLDB": {
-      "type": "rich-text",
-      "blocks": {
-        "subheading_MFacJ4": {
-          "type": "subheading",
-          "settings": {
-            "subheading": "Shop {{ collection.title }} Products Online or In Store"
-          }
-        },
-        "text_JHmj9h": {
-          "type": "text",
-          "settings": {
-            "text": "{{ collection.metafields.custom.description | metafield_tag }}"
-          }
-        }
-      },
-      "block_order": [
-        "subheading_MFacJ4",
-        "text_JHmj9h"
-      ],
-      "name": "Rich text",
-      "settings": {
-        "container": "container",
-        "color_scheme": "",
-        "content_alignment": "left",
-        "padding_top": 80,
-        "padding_bottom": 80,
-        "custom_class": "",
-        "animations": "inherit"
-      }
-    },
-    "custom_content_ynibHk": {
-      "type": "custom-content",
-      "blocks": {
-        "text_7RVbCa": {
-          "type": "text",
-          "settings": {
-            "title": "Talk about your brand",
-            "subheading": "",
-            "text": "{{ collection.metafields.custom.description | metafield_tag }}",
-            "width": "100%",
-            "alignment": "start",
-            "align_text": "left",
-            "text_size": "medium",
-            "text_color": "inherit",
-            "button_label": "",
-            "button_link": "",
-            "button_style": "m-button--primary",
-            "button_size": "",
-            "block_custom_class": "",
-            "animations": "inherit"
-          }
-        }
-      },
-      "block_order": [
-        "text_7RVbCa"
-      ],
-      "disabled": true,
-      "settings": {
-        "heading": "",
-        "heading_size": "h3",
-        "subheading": "",
-        "description": "",
-        "header_alignment": "left",
-        "container": "container",
-        "color_scheme": "",
-        "content_color_scheme": "",
-        "enable_parallax": false,
-        "parallax_direction": "vertical",
-        "gap": 30,
-        "gap_mobile": 16,
-        "use_scroll_mobile": false,
-        "padding_top": 48,
-        "padding_bottom": 48,
-        "custom_class": ""
-      }
     }
   },
   "order": [
@@ -341,8 +264,6 @@
     "collection_list_JEqxJE",
     "main",
     "recent-viewed",
-    "brands_list_XQwEw8",
-    "rich_text_UHqLDB",
-    "custom_content_ynibHk"
+    "brands_list_XQwEw8"
   ]
 }
