@@ -265,7 +265,7 @@
           "settings": {
             "title": "Talk about your brand",
             "subheading": "",
-            "text": "<p>Use this text to share information about your brand with your customers. Describe a product, share announcements, or welcome customers to your store.</p>",
+            "text": "{{ collection.description }}",
             "width": "100%",
             "alignment": "center",
             "align_text": "left",
@@ -283,7 +283,6 @@
       "block_order": [
         "text_7RVbCa"
       ],
-      "disabled": true,
       "settings": {
         "heading": "Custom content",
         "heading_size": "h3",
