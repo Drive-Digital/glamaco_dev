@@ -175,7 +175,7 @@ class Collection {
       });
     }
 
-    const activeCol = this.activeCol || this.initialCol;
+    const activeCol = this.initialCol;
     if (this.showColSwitchers) {
       cols[activeCol - 1].classList.remove("active");
       cols[col - 1].classList.add("active");
