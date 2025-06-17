@@ -265,9 +265,9 @@
           "settings": {
             "title": "Talk about your brand",
             "subheading": "",
-            "text": "{{ collection.description }}",
+            "text": "{{ collection.metafields.custom.description | metafield_tag }}",
             "width": "100%",
-            "alignment": "center",
+            "alignment": "start",
             "align_text": "left",
             "text_size": "medium",
             "text_color": "inherit",
@@ -284,12 +284,12 @@
         "text_7RVbCa"
       ],
       "settings": {
-        "heading": "Custom content",
+        "heading": "",
         "heading_size": "h3",
         "subheading": "",
         "description": "",
-        "header_alignment": "center",
-        "container": "container-fluid",
+        "header_alignment": "left",
+        "container": "w-full",
         "color_scheme": "",
         "content_color_scheme": "",
         "enable_parallax": false,
