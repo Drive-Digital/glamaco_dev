@@ -4005,8 +4005,8 @@ to {
         --offset-x:  max(0px,  calc( 15px - var(--column-gap-mobile,  var(--column-gap,  0px)) / 2));
         overflow-x: scroll;
         overflow-y: hidden;
-        margin-right: -15px;
-        margin-left: -15px;
+        margin-right: 0;
+        margin-left: 0;
         padding-left: 15px;
     }
     .m-mixed-layout--mobile-scroll::-webkit-scrollbar {
@@ -4014,8 +4014,8 @@ to {
     }
     .m-mixed-layout--mobile-scroll .m-mixed-layout__inner {
         display: flex;
-        margin-left: max(-15px, var(--column-gap-mobile,  var(--column-gap))/-2);
-        margin-right: max(-15px, var(--column-gap-mobile,  var(--column-gap))/-2);
+        margin-left: 0;
+        margin-right: 0;
     }
     .m-mixed-layout--mobile-scroll .m-mixed-layout__inner>* {
         flex: none;
