@@ -289,7 +289,7 @@
         "subheading": "",
         "description": "",
         "header_alignment": "left",
-        "container": "w-full",
+        "container": "container",
         "color_scheme": "",
         "content_color_scheme": "",
         "enable_parallax": false,
