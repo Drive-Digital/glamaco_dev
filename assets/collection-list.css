@@ -3,5 +3,5 @@
     padding: 10px;
     border-radius: 30px;
     border: 0;
-    background: rgb(var(--secondary-background));
+    background: rgb(var(--color-background-secondary));
 }
