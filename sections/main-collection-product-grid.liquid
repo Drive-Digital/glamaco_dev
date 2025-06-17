@@ -81,6 +81,7 @@
               data-total-pages="{{ paginate.pages }}"
               data-product-container
               data-column="{{ initial_column }}"
+              data-page="{{ paginate.pages }}"
             >
               {%- for product in collection.products -%}
                 <div class="m-product-item m:w-6/12 md:m:w-4/12">
@@ -101,6 +102,7 @@
                 </div>
               {%- endfor -%}
             </div>
+            {% if paginate.pages > 1 %}
               <div class="m-collection--pagination m:text-center{% if animated %} m-scroll-trigger animate--{{ animation_effect }}{% endif %}">
                 {%- if section.settings.paginate_type == 'paginate' -%}
                   {%- render 'pagination', paginate: paginate, anchor: '' -%}
@@ -123,6 +125,7 @@
                   </button>
                 {%- endif -%}
               </div>
+            {% endif %}
           {%- endif -%}
         {%- endpaginate -%}
       </div>
