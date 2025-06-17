@@ -2486,7 +2486,7 @@ sup {
 }
 .m-breadcrumb--item {
     padding: 15px;
-    font-size: 15px;
+    font-size: 12px;
     color: inherit;
     white-space: nowrap;
     transition: all var(--m-duration-default,  0.25s) ease;
