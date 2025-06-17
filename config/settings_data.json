@@ -300,7 +300,7 @@
   "platform_customizations": {
     "custom_css": [
       ".m-section__subheading,.m-richtext__subtitle {font-weight: 500; font-size: 18px;}",
-      ".m-section__header {--m-section-header-spacing-bottom: 0;}",
+      ".m-section__header {--m-section-header-spacing-bottom: 10px;}",
       ".m-button--link {--btn-link-border: 1px;}",
       "body .m-product-card__tag-name,.m-product-tag {border-radius: 0;}",
       ".m-price-item {font-size: 26px; font-weight: bold;}",
