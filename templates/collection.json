@@ -260,11 +260,10 @@
     "rich_text_UHqLDB": {
       "type": "rich-text",
       "blocks": {
-        "heading_EixbR8": {
-          "type": "heading",
+        "subheading_MFacJ4": {
+          "type": "subheading",
           "settings": {
-            "heading": "Talk about your brand",
-            "heading_size": "h2"
+            "subheading": "Shop {{ collection.title }} Products Online or In Store"
           }
         },
         "text_JHmj9h": {
@@ -275,7 +274,7 @@
         }
       },
       "block_order": [
-        "heading_EixbR8",
+        "subheading_MFacJ4",
         "text_JHmj9h"
       ],
       "name": "Rich text",
