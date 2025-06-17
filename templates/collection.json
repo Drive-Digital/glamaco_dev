@@ -197,7 +197,7 @@
       "name": "Collection Description",
       "settings": {
         "section_heading": "{{ collection.metafields.custom.heading.value }}",
-        "section_description": "{{ collection.metafields.custom.description | metafield_tag }}",
+        "section_description": "",
         "padding_top": 40,
         "padding_bottom": 40
       }
