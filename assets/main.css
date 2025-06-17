@@ -2491,6 +2491,9 @@ sup {
     white-space: nowrap;
     transition: all var(--m-duration-default,  0.25s) ease;
 }
+.m-breadcrumb--item:not(.m-breadcrumb--item-current){
+    font-weight: 600;
+}
 .m-breadcrumb--item-current {
     white-space: nowrap;
     overflow: hidden;
