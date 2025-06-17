@@ -257,6 +257,38 @@
         "animations": "inherit"
       }
     },
+    "rich_text_UHqLDB": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_EixbR8": {
+          "type": "heading",
+          "settings": {
+            "heading": "Talk about your brand",
+            "heading_size": "h2"
+          }
+        },
+        "text_JHmj9h": {
+          "type": "text",
+          "settings": {
+            "text": "{{ collection.metafields.custom.description | metafield_tag }}"
+          }
+        }
+      },
+      "block_order": [
+        "heading_EixbR8",
+        "text_JHmj9h"
+      ],
+      "name": "Rich text",
+      "settings": {
+        "container": "container",
+        "color_scheme": "",
+        "content_alignment": "left",
+        "padding_top": 80,
+        "padding_bottom": 80,
+        "custom_class": "",
+        "animations": "inherit"
+      }
+    },
     "custom_content_ynibHk": {
       "type": "custom-content",
       "blocks": {
@@ -283,6 +315,7 @@
       "block_order": [
         "text_7RVbCa"
       ],
+      "disabled": true,
       "settings": {
         "heading": "",
         "heading_size": "h3",
@@ -310,6 +343,7 @@
     "main",
     "recent-viewed",
     "brands_list_XQwEw8",
+    "rich_text_UHqLDB",
     "custom_content_ynibHk"
   ]
 }
