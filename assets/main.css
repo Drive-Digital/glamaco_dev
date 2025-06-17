@@ -3981,6 +3981,13 @@ to {
     margin-left: 0;
     margin-right: 0;
 }
+
+
+.m-mixed-layout--mobile-scroll .m-mixed-layout__inner.m-mixed-layout__inner--no-image>* {
+    flex: none;
+    width: unset !important;
+}
+
 @media screen and (max-width: 1200px) {
     .m-mixed-layout--mobile-grid {
         --grid-columns-mobile:  2;
