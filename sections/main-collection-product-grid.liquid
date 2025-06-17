@@ -46,7 +46,7 @@
   data-initial-column="{{ initial_column }}"
   data-view="{{ template.name }}"
 >
-  <div class="{{ container }}">
+  <div class="{{ container }}" data-limit="{{ section.settings.pagination_limit  }}">
     <div class="m-collection--wrapper {% if section.settings.show_filter %}m-sidebar--{{ section.settings.sidebar }}{% endif %}">
       {%- render 'collection-sidebar',
         show_filter: show_filter,
