@@ -196,8 +196,10 @@
       "type": "collection-description",
       "name": "Collection Description",
       "settings": {
-        "section_heading": "Shop {{ collection.title }} Products Online or In Store",
-        "section_description": "{{ collection.metafields.custom.description | metafield_tag }}"
+        "section_heading": "{{ collection.metafields.custom.heading.value }}",
+        "section_description": "{{ collection.metafields.custom.description | metafield_tag }}",
+        "padding_top": 40,
+        "padding_bottom": 40
       }
     },
     "brands_list_XQwEw8": {
