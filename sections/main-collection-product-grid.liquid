@@ -76,12 +76,13 @@
               <p class="m-collection--empty-text">{{ 'collections.general.no_matches' | t }}</p>
             </div>
           {%- else -%}
+            {% assign collection_product = collections['hair'] %}
             <div
               class="m-collection-products m:flex m:flex-wrap m-cols-4"
               data-total-pages="{{ paginate.pages }}"
               data-product-container
               data-column="{{ initial_column }}"
-              data-page="{{ collection.handle }}"
+              data-page="{{ collection_product.products.size }}"
             >
               {%- for product in collection.products -%}
                 <div class="m-product-item m:w-6/12 md:m:w-4/12">
