@@ -192,6 +192,14 @@
         "animations": "inherit"
       }
     },
+    "collection_description_XckUTn": {
+      "type": "collection-description",
+      "name": "Collection Description",
+      "settings": {
+        "section_heading": "Shop {{ collection.title }} Products Online or In Store",
+        "section_description": "{{ collection.metafields.custom.description | metafield_tag }}"
+      }
+    },
     "brands_list_XQwEw8": {
       "type": "brands-list",
       "blocks": {
@@ -256,14 +264,6 @@
         "custom_class": "",
         "animations": "inherit"
       }
-    },
-    "collection_description_XckUTn": {
-      "type": "collection-description",
-      "name": "Collection Description",
-      "settings": {
-        "section_heading": "Shop {{ collection.title }} Products Online or In Store",
-        "section_description": "{{ collection.metafields.custom.description | metafield_tag }}"
-      }
     }
   },
   "order": [
@@ -272,7 +272,7 @@
     "collection_list_JEqxJE",
     "main",
     "recent-viewed",
-    "brands_list_XQwEw8",
-    "collection_description_XckUTn"
+    "collection_description_XckUTn",
+    "brands_list_XQwEw8"
   ]
 }
