@@ -19,14 +19,16 @@
     }
 {% endstyle %}
 
+{%
+liquid
+assign heading = section.settings.section_heading
+assign description = section.settings.section_description
+%}
+
+{% if description != blank %}
 <div class="collection_description collection_description-{{ section.id }}">
     <div class="container-fluid">
         <div class="section-entry_text">
-            {%
-                liquid
-                assign heading = section.settings.section_heading
-                assign description = section.settings.section_description
-            %}
             {% if heading != blank %}
                 <h2 class="section_heading h5">{{ heading }}</h2>
             {% endif %}
@@ -38,7 +40,7 @@
         </div>
     </div>
 </div>
-
+{% endif %}
 {%  schema  %}
 {
     "name": "Collection Description",
