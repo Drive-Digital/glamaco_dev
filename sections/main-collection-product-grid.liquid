@@ -101,7 +101,6 @@
                 </div>
               {%- endfor -%}
             </div>
-            {% if paginate.pages > 1 %}
               <div class="m-collection--pagination m:text-center{% if animated %} m-scroll-trigger animate--{{ animation_effect }}{% endif %}">
                 {%- if section.settings.paginate_type == 'paginate' -%}
                   {%- render 'pagination', paginate: paginate, anchor: '' -%}
@@ -124,7 +123,6 @@
                   </button>
                 {%- endif -%}
               </div>
-            {% endif %}
           {%- endif -%}
         {%- endpaginate -%}
       </div>
