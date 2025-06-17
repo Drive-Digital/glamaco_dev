@@ -50,7 +50,7 @@
   else
     assign trade_price = target.metafields.webstorelink.trade_price.value | times: 100
     assign trade_compare_at_price = target.metafields.webstorelink.trade_compare_at_price.value | times: 100
-    assign is_trade_only_product = target.metafields.webstorelink.trade_only_product
+    assign is_trade_only_product = target.metafields.custom.trade_only_product
   endif
 
   if trade_price > price
