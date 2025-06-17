@@ -80,6 +80,7 @@
               class="m-collection-products m:flex m:flex-wrap m-cols-{{ initial_column }}"
               data-total-pages="{{ paginate.pages }}"
               data-product-container
+              data-column="{{ initial_column }}"
             >
               {%- for product in collection.products -%}
                 <div class="m-product-item m:w-6/12 md:m:w-4/12">
