@@ -18,8 +18,8 @@
         "full_width": false,
         "horizontal_content_alignment": "start",
         "vertical_content_alignment": "end",
-        "text_color": "dark",
-        "overlay_color": 40,
+        "text_color": "light",
+        "overlay_color": 30,
         "min_height": 150
       }
     },
