@@ -36,9 +36,16 @@
     {% endif %}
 
     {% if featured_image != blank %}
-        .collection-featured_image, .collection-banner_text{
-            min-height: {{ section.settings.min_height }}px;
-        }
+    .collection-featured_image, .collection-banner_text{
+        min-height: {{ section.settings.min_height }}px;
+    }
+
+    .collection-banner_text{
+        position: absolute;
+        left: 0;
+        top: 0;
+        z-index: 2;
+    }
     {% endif %}
 {% endstyle %}
 {% if breadcrumbs %}
