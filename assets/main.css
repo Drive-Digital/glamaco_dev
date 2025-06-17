@@ -1827,7 +1827,7 @@ input:not(.m-quantity__input, .form-field, .m-facets-price--range), textarea:not
     transform: scaleX(1) translateZ(0);
     transition: transform var(--m-duration-long,  0.5s) cubic-bezier(0.165,  0.84,  0.44,  1) .3s, -webkit-transform var(--m-duration-long,  0.5s) cubic-bezier(0.165,  0.84,  0.44,  1) .3s;
 }
-.m-button--link::before, .m-section__description a::before, .m-link-underline::before, .rte a:not(.spr-summary-actions-newreview)::before, .m-button--link::after, .m-section__description a::after, .m-link-underline::after, .rte a:not(.spr-summary-actions-newreview)::after {
+.m-button--link::before, .m-section__description a::before, .m-link-underline::before, .m-button--link::after, .m-section__description a::after, .m-link-underline::after, .rte a:not(.spr-summary-actions-newreview)::after {
     content: "";
     position: absolute;
     bottom: -1px;
@@ -1928,7 +1928,7 @@ input:not(.m-quantity__input, .form-field, .m-facets-price--range), textarea:not
 .m-section__description a, .m-link-underline, .rte a:not(.spr-summary-actions-newreview) {
     --btn-link-border:  1px;
 }
-.m-section__description a::after, .m-section__description a::before, .m-link-underline::after, .m-link-underline::before, .rte a:not(.spr-summary-actions-newreview)::after, .rte a:not(.spr-summary-actions-newreview)::before {
+.m-section__description a::after, .m-section__description a::before, .m-link-underline::after, .m-link-underline::before, .rte a:not(.spr-summary-actions-newreview)::after {
     bottom: 3px;
 }
 .button[name=checkout]>* {
