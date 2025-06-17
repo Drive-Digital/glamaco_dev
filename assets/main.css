@@ -4007,7 +4007,7 @@ to {
         overflow-y: hidden;
         margin-right: 0;
         margin-left: 0;
-        padding-left: 15px;
+        padding-left: 0;
     }
     .m-mixed-layout--mobile-scroll::-webkit-scrollbar {
         display: none;
