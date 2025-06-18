@@ -1,0 +1,192 @@
+{{ 'collection-banner.css' | asset_url |  stylesheet_tag }}
+{%
+    liquid
+    assign featured_image = collection.image
+    assign display_featured_image = section.settings.show_featured_image
+    assign breadcrumbs = section.settings.show_breadcrumbs
+    assign section_full_width = section.settings.full_width
+    assign horizontal_alignment = section.settings.horizontal_content_alignment
+    assign vertical_alignment = section.settings.vertical_content_alignment
+    assign text_color = section.settings.text_color
+    assign overlay_percentage = section.settings.overlay_color
+%}
+
+{%  style  %}
+    .collection-banner--theme_light .collection-banner_overlay::before{
+        background: rgb(255 255 255 / {{ overlay_percentage }}% );
+    }
+
+    .collection-banner--theme_dark .collection-banner_overlay::before{
+        background: rgb(0 0 0 / {{ overlay_percentage }}% );
+    }
+
+    .collection-banner_text .container-fluid{
+        justify-content: {{ horizontal_alignment }};
+        align-items: {{ vertical_alignment }};
+    }
+
+    .collection-banner-{{ section.id }} .collection-banner_text .container-fluid{
+        padding-block: 20px;
+    }
+
+    {% if featured_image != blank %}
+    .collection-banner-{{ section.id }} .collection-banner_text .container-fluid{
+        padding-inline: 30px;
+    }
+    {% endif %}
+
+    {% if featured_image != blank %}
+    .collection-featured_image, .collection-banner_text{
+        min-height: {{ section.settings.min_height }}px;
+    }
+
+    .collection-banner_text{
+        position: absolute;
+        left: 0;
+        top: 0;
+        z-index: 2;
+    }
+    {% endif %}
+{% endstyle %}
+<div class="collection-banner collection-banner-{{ section.id }} collection-banner--theme_{{ text_color }}">
+    {% if display_featured_image and featured_image != blank %}
+        {% assign aspect_ratio = featured_image.height | times: 1.0 | divided_by: featured_image.width %}
+        <div class="collection-featured_image {% if overlay_percentage > 0 %}collection-banner_overlay{% endif %} {% unless section_full_width %}container-fluid{% endunless %}" style="padding-top: {{ aspect_ratio | times: 100 }}%;">
+            {{ featured_image |  image_url: width: 2048 |  image_tag: class: 'featured_image-thumbnail', loading: 'lazy'  }}
+        </div>
+    {% endif %}
+
+    <div class="collection-banner_text">
+        <div class="container-fluid">
+            <h1 class="collection-banner_title m:text-4xl">{{ collection.title }}</h1>
+        </div>
+    </div>
+</div>
+
+{% if breadcrumbs %}
+<div class="collection__breadcrumb">
+{% render 'breadcrumb', animated: true, animation_effect: true%}
+</div>
+{% endif %}
+
+{% schema %}
+{
+  "name": "Collection banner",
+  "class": "shopify-section-collection-banner",
+  "settings": [
+    {
+        "type": "header",
+        "content": "Featured Image"
+    },
+    {
+        "type": "checkbox",
+        "id": "show_featured_image",
+        "label": "Display Featured Image",
+        "default": true
+    },
+    {
+        "type": "header",
+        "content": "Breadcrumbs"
+    },
+    {
+        "type": "checkbox",
+        "id": "show_breadcrumbs",
+        "label": "Display Breadcrumbs",
+        "default": true
+    },
+    {
+        "type": "header",
+        "content": "Appearance"
+    },
+    {
+        "type": "checkbox",
+        "id": "full_width",
+        "label": "Section Full Width",
+        "default": false
+    },
+    {
+        "type": "select",
+        "id": "horizontal_content_alignment",
+        "options": [
+            {
+                "label": "left",
+                "value": "start"
+            },
+            {
+                "label": "center",
+                "value": "center"
+            },
+            {
+                "label": "right",
+                "value": "end"
+            }
+        ],
+        "label": "Horizontal Content Alignment",
+        "default": "start"
+    },
+    {
+        "type": "select",
+        "id": "vertical_content_alignment",
+        "options": [
+            {
+                "label": "top",
+                "value": "start"
+            },
+            {
+                "label": "center",
+                "value": "center"
+            },
+            {
+                "label": "bottom",
+                "value": "end"
+            }
+        ],
+        "label": "Vertical Content Alignment",
+        "default": "end"
+    },
+    {
+        "type": "select",
+        "id": "text_color",
+        "options": [
+            {
+                "label": "light",
+                "value": "light"
+            },
+            {
+                "label": "dark",
+                "value": "dark"
+            }
+        ],
+        "label": "Text Color",
+        "default": "light"
+    },
+    {
+        "type": "range",
+        "id": "overlay_color",
+        "min": 10,
+        "max": 100,
+        "step": 10,
+        "default": 40,
+        "label": "Overlay Color"
+    },
+    {
+        "type": "header",
+        "content": "Container"
+    },
+    {
+        "type": "range",
+        "id": "min_height",
+        "min": 10,
+        "max": 400,
+        "step": 10,
+        "default": 150,
+        "label": "Minimum Height"
+    }
+  ],
+    "presets": [
+        {
+            "name": "New - Collection Banner"
+        }
+    ]
+}
+{% endschema %}

@@ -75,7 +75,7 @@ class Collection {
     this.activeCol = null;
     this.currentPage = 1;
     this.initialCol = Number(section.dataset.initialColumn);
-    this.cachedCol = Number(window.localStorage.getItem(this.STORAGE_KEY)) || this.initialCol;
+    this.cachedCol = this.initialCol;
     this.showColSwitchers = section.dataset.showColSwitchers === "true";
     // Filters data
     this.enableFilters = section.dataset.enableFilters === "true";

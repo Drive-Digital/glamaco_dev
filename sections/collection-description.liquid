@@ -1,0 +1,97 @@
+
+
+{%  style  %}
+    .collection_description-{{ section.id }}{
+        padding-top: {{ section.settings.padding_top }}px;
+        padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+
+    .collection_description .section_heading{
+        margin-bottom: 20px;
+    }
+
+    .collection_description .section_rte *{
+        margin-bottom: 15px;
+    }
+
+    .collection_description .section_rte a{
+        color: inherit;
+    }
+{% endstyle %}
+
+{%
+liquid
+assign heading = collection.metafields.custom.heading
+assign description = section.settings.section_description
+%}
+
+{% if description != blank %}
+<div class="collection_description collection_description-{{ section.id }}">
+    <div class="container-fluid">
+        <div class="section-entry_text">
+            {% if heading != blank %}
+                <h2 class="section_heading h5">{{ heading }}</h2>
+            {% endif %}
+            {% if description != blank %}
+                <div class="section_rte">
+                    {{ description }}
+                </div>
+            {% endif %}
+        </div>
+    </div>
+</div>
+{% endif %}
+{%  schema  %}
+{
+    "name": "Collection Description",
+    "settings": [
+        {
+            "type": "header",
+            "content": "Heading"
+        },
+        {
+            "type": "inline_richtext",
+            "id": "section_heading",
+            "label": "Section Heading"
+        },
+        {
+            "type": "header",
+            "content": "Description"
+        },
+        {
+            "type": "richtext",
+            "id": "section_description",
+            "label": "Section Description"
+        },
+        {
+            "type": "header",
+            "content": "Section Padding"
+        },
+        {
+            "type": "range",
+            "id": "padding_top",
+            "label": "Padding Top",
+            "default": 40,
+            "min": 0,
+            "max": 100,
+            "step": 2,
+            "unit": "px"
+        },
+        {
+            "type": "range",
+            "id": "padding_bottom",
+            "label": "Padding Bottom",
+            "default": 40,
+            "min": 0,
+            "max": 100,
+            "step": 2,
+            "unit": "px"
+        }
+    ],
+    "presets": [
+        {
+            "name": "Collection Description"
+        }
+    ]
+}
+{% endschema %}
